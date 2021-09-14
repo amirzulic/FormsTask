@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Routes, Route, Switch} from "react-router-dom";
+
+import pocetna from "./Routes/pocetna";
+import forme from "./Routes/forme";
+import formeNaziv from "./Routes/forme_naziv";
+import formeFinal from "./Routes/forma_final";
+import formeOdgovori from "./Routes/forma_odgovori";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Routes>
+        <Switch>
+            <Route exact path = "/" component={pocetna}/>
+            <Route exact path = "/forme" component={forme}/>
+            <Route exact path = "/forme/:naziv/unos_teksta" component={formeNaziv}/>
+            <Route exact path = "/forme/:naziv" component={formeFinal}/>
+            <Route exact path = "/forme/:naziv/odgovori" component={formeOdgovori}/>
+        </Switch>
+      </Routes>
   );
 }
 
